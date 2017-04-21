@@ -1,0 +1,128 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >babel-preset-node5 (v12.0.1)</a>
+</h1>
+<h4>Babel preset for Node 5.x (ECMAScript stage 0 and up)</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.babel-preset-node5">module babel-preset-node5</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.babel-preset-node5.babel-preset-node5">
+            function <span class="apidocSignatureSpan"></span>babel-preset-node5
+            <span class="apidocSignatureSpan">(context, opts = {})</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.babel-preset-node5" id="apidoc.module.babel-preset-node5">module babel-preset-node5</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.babel-preset-node5.babel-preset-node5" id="apidoc.element.babel-preset-node5.babel-preset-node5">
+        function <span class="apidocSignatureSpan"></span>babel-preset-node5
+        <span class="apidocSignatureSpan">(context, opts = {})</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">babel-preset-node5 = function (context, opts = {}) {
+  let loose = false;
+  let modules = true;
+
+  if (opts !== undefined) {
+    if (opts.loose !== undefined) loose = opts.loose;
+    if (opts.modules !== undefined) modules = opts.modules;
+  }
+
+  if (typeof loose !== &#x27;boolean&#x27;) throw new Error(&#x22;Preset node5 &#x27;loose&#x27; option must be a boolean.&#x22;);
+  if (typeof loose !== &#x27;boolean&#x27;) throw new Error(&#x22;Preset node5 &#x27;modules&#x27; option must be a boolean.&#x22;);
+
+  // be DRY
+  const optsLoose = { loose };
+
+  return {
+    plugins: [
+      require(&#x27;babel-plugin-syntax-async-functions&#x27;),
+      require(&#x27;babel-plugin-syntax-object-rest-spread&#x27;),
+      require(&#x27;babel-plugin-syntax-trailing-function-commas&#x27;),
+      [require(&#x27;babel-plugin-transform-es2015-destructuring&#x27;), optsLoose],
+      modules &#x26;&#x26; [require(&#x27;babel-plugin-transform-es2015-modules-commonjs&#x27;), optsLoose],
+      require(&#x27;babel-plugin-transform-es2015-parameters&#x27;),
+      require(&#x27;babel-plugin-transform-es2015-sticky-regex&#x27;),
+      require(&#x27;babel-plugin-transform-es2015-unicode-regex&#x27;),
+      require(&#x27;babel-plugin-transform-strict-mode&#x27;),
+      require(&#x27;babel-plugin-transform-object-rest-spread&#x27;),
+      require(&#x27;babel-plugin-transform-async-to-generator&#x27;),
+    ].filter(Boolean) // filter out falsy values
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
